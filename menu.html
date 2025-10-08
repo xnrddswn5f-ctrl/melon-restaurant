@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melon Restaurant Menyu</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 2px solid black;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
+#back-btn {
+  padding: 6px 12px;
+  border: none;
+  background-color: #ff9900;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#welcome {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: orange;
+}
+
+.lang-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg') center/cover no-repeat;
+  position: relative;
+  cursor: pointer;
+}
+
+.lang-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  background: url('https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg') center/cover no-repeat;
+  border-radius: 50%;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.category-btn {
+  padding: 10px 18px;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.category-btn:hover {
+  background-color: #ffb347;
+  color: white;
+}
+
+.set-container {
+  margin: 10px 20px;
+}
+
+.set-item {
+  background-color: #d4edda;
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+}
+
+.set-content {
+  margin-top: 5px;
+  font-weight: normal;
+  line-height: 1.4;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .set-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <button id="back-btn" onclick="history.back()">Geri Qayıt</button>
+  <div id="welcome">XOŞ GƏLMİSİNİZ</div>
+  <button class="lang-btn" title="Dili dəyiş"></button>
+</header>
+
+<div class="categories">
+  <button class="category-btn" onclick="showCategory('setler')">Setlər</button>
+  <button class="category-btn" onclick="showCategory('qelyan')">Qəlyanlar</button>
+  <button class="category-btn" onclick="showCategory('esas')">Əsas Yeməklər</button>
+  <button class="category-btn" onclick="showCategory('isti')">İsti Qəlyanaltılar</button>
+  <button class="category-btn" onclick="showCategory('soyuq')">Soyuq Qəlyanaltılar</button>
+  <button class="category-btn" onclick="showCategory('milli')">Milli Mətbəx</button>
+  <button class="category-btn" onclick="showCategory('suplar')">Suplar</button>
+  <button class="category-btn" onclick="showCategory('salatlar')">Salatlar</button>
+  <button class="category-btn" onclick="showCategory('garnir')">Qarnirlər</button>
+  <button class="category-btn" onclick="showCategory('pasta')">Pastalar</button>
+  <button class="category-btn" onclick="showCategory('lahmacun')">Lahmacunlar</button>
+  <button class="category-btn" onclick="showCategory('sosis')">Sosislər</button>
+  <button class="category-btn" onclick="showCategory('pizza')">Pizzalar</button>
+  <button class="category-btn" onclick="showCategory('fastfood')">Fast-Food</button>
+  <button class="category-btn" onclick="showCategory('mezeler')">Məzələr</button>
+  <button class="category-btn" onclick="showCategory('iciler')">Sərin İçkilər</button>
+  <button class="category-btn" onclick="showCategory('cerezler')">Çərəzlər</button>
+  <button class="category-btn" onclick="showCategory('caylar')">Çaylar</button>
+  <button class="category-btn" onclick="showCategory('desertler')">Desertlər</button>
+  <button class="category-btn" onclick="showCategory('saclar')">Saclar</button>
+</div>
+
+<div id="menu-items">
+  <!-- Setlər -->
+<div id="setler" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Set 1</span><span>23₼</span></div><div class="set-content">• Çaşka qəlyan<br>• Şakalad<br>• Çay 1</div></div>
+  <div class="set-item"><div class="set-title"><span>Set 2</span><span>31₼</span></div><div class="set-content">• Çay 1<br>• Çaşka qəlyan<br>• Türk paxlavası<br>• Çərəz dəsti</div></div>
+  <div class="set-item"><div class="set-title"><span>Set 3</span><span>30₼</span></div><div class="set-content">• Çay 1<br>• Mürəbbə<br>• Qreyfut Qəlyan</div></div>
+  <div class="set-item"><div class="set-title"><span>Set 4</span><span>45₼</span></div><div class="set-content">• Qreyfut Qəlyan<br>• Çay<br>• Mürəbbə<br>• Şakalad<br>• Çərəz dəsti</div></div>
+  <div class="set-item"><div class="set-title"><span>Şaurma seti</span><span>28₼</span></div><div class="set-content">• Çaşka Qəlyan<br>• Şaurma 2 əd<br>• 0,5 kola 2 əd</div></div>
+  <div class="set-item"><div class="set-title"><span>Lahmacun seti</span><span>37₼</span></div><div class="set-content">• Qreyfut Qəlyan<br>• Lahmacun Sadə 4 əd<br>• Kola 1l</div></div>
+  <div class="set-item"><div class="set-title"><span>Pizza seti 1</span><span>27₼</span></div><div class="set-content">• Çaşka Qəlyan<br>• Qarışıq pizza<br>• Kola 1 l</div></div>
+  <div class="set-item"><div class="set-title"><span>Pizza seti 2</span><span>34₼</span></div><div class="set-content">• Pizza Toyuğ<br>• Çaşka Qəlyan<br>• Çay Mürəbbə</div></div>
+  <div class="set-item"><div class="set-title"><span>Club seti</span><span>40₼</span></div><div class="set-content">• Club-Sandwich 2 əd<br>• Lahmacun sadə 2 əd<br>• Çaşka Qəlyan<br>• Kola 1l</div></div>
+  <div class="set-item"><div class="set-title"><span>Burger seti (2 nəfərlik)</span><span>35₼</span></div><div class="set-content">• Çaşka qəlyan<br>• Toyuq burger 2 əd<br>• Kola 0,5 2 əd</div></div>
+  <div class="set-item"><div class="set-title"><span>Dürüm seti 1</span><span>34₼</span></div><div class="set-content">• Çaşka Qəlyan<br>• Lülə dürüm 2 əd<br>• Kola 0.5 2 əd</div></div>
+  <div class="set-item"><div class="set-title"><span>Ciyər seti</span><span>28₼</span></div><div class="set-content">• Çaşka Qəlyan<br>• Ciyər çöp 2 əd<br>• Kola 1 l</div></div>
+  <div class="set-item"><div class="set-title"><span>Dürüm seti 2</span><span>24₼</span></div><div class="set-content">• Lülə 1 əd<br>• Ciyər 1 əd<br>• Çoban salatı 1 əd<br>• Kartof free 1 əd<br>• Kola 1 l</div></div>
+  <div class="set-item"><div class="set-title"><span>Pizza seti 3 (4 nəfər)</span><span>27₼</span></div><div class="set-content">• Marqaritta pizza<br>• Pide 1 əd<br>• Lahmacun sadə 4 əd<br>• Kola 1 l</div></div>
+</div>
+<!-- Suplar -->
+<div id="suplar" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Düşbərə</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Mərci</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Tomat</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Göbələk</span><span>5₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Salatlar -->
+<div id="salatlar" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Çoban salat</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sezar toyuq</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sezar krivetka</span><span>14₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Melon salat</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ət salatı</span><span>12₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq salatı</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Vişnə salatı</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Paytaxt salatı</span><span>5₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- İsti Qəlyanaltılar -->
+<div id="isti" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Kükü</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pomidor yumurta</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Nugets</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Tempura</span><span>14₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Mini qutab</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pendir çubuğu</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pendir topları</span><span>5₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Soyuq Qəlyanaltılar -->
+<div id="soyuq" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Acıka</span><span>2₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Süzmə</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Turşu</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pendir assorti</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ağ pendir</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Tərəvəz buketi</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Zeytun assorti</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pomidor dolma</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Blinçik kəsmik/ət</span><span>2/3₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Əsas Yeməklər -->
+<div id="esas" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Kiyevskiy kotlet</span><span>13₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Faxiitos ət</span><span>14₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Faxiitos toyuq</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq Stroqanoff</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ət Stroqanoff</span><span>14₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq langet</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ət langet</span><span>13₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Monastır toyuq</span><span>13₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Monastır ət</span><span>15₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Tuşonka</span><span>13₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Xangel</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Stek</span><span>18/30₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Cız-bız</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Lülə dürüm fri</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ciyər dürüm fri</span><span>7.5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq dürüm</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Quzu əti ilə çoban qovurma</span><span>15₼</span></div><div class="set-content"></div></div>
+</div>
+<!-- Milli Mətbəx -->
+<div id="milli" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Vişnəli çolpə</span><span>18₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Vişnəli can ati</span><span>17₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Çolpə tabaka</span><span>25₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Nar qovurma</span><span>17₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Çolpə qovurma</span><span>20₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq setkada</span><span>20₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq cığırtma</span><span>20₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Şaurma Fri</span><span>8₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Lahmacunlar -->
+<div id="lahmacun" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Sadə</span><span>3.5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Acılı</span><span>3.5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pendirli</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pide</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pide pendirli</span><span>10₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Pizzalar -->
+<div id="pizza" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Marqarita</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuqlu</span><span>12₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Peperoni</span><span>12₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sezar</span><span>13₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qarışıq Pizza</span><span>15₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Fast-Food -->
+<div id="fastfood" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Club sandviç</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ət sandviç</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Salami sandviç</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Şaurma</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ət burger</span><span>11₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Toyuq burger</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Lülə dürüm</span><span>12₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Lahmacun dürüm</span><span>11₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Hot dog pendirli</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Dönər</span><span>7/14₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Məzələr -->
+<div id="mezeler" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Qrenki</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Boğaz</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pətənə</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Saçaq sadə</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Saçaq qızartma</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Cipsi</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Suxarı</span><span>2₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Düşbərə</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Tum</span><span>3₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Sərin İçkilər -->
+<div id="iciler" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Cola</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Fanta</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sprite</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Cola zero</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Cola şüşə</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Fuse tea</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sirab qazlı/qazsız 0.33</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Kompot</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Sarıkız</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Red bull şəkərli/şəkərsiz</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Nar suyu özel</span><span>3₼</span></div><div class="set-content"></div></div>
+</div>
+<!-- Çərəzlər -->
+<div id="cerezler" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Xurma İsrail</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qarışıq çərəz</span><span>10₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qarışıq quru meyvə</span><span>8₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qovrulmuş fındıq</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qovrulmuş qoz</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qovrulmuş badam</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Antep püstə</span><span>6₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Çaylar -->
+<div id="caylar" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Qara çay</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Yaşıl çay</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Meyvəli çay</span><span>8₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Desertlər -->
+<div id="desertler" class="set-container">
+  <div class="set-item"><div class="set-title"><span>San-Sebastian</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ballı tort</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Napaleon</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Vafli</span><span>5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Mürəbbə</span><span>7₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Şokolad</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Lokum</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Meyvə assorti</span><span>15/25₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Qəlyan -->
+<div id="qelyan" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Saxsı</span><span>15₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Saxsı premium</span><span>20₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qreyfrut</span><span>20₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qreyfrut premium</span><span>25₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Saclar -->
+<div id="saclar" class="set-container">
+  <div class="set-item"><div class="set-title"><span>Çolpa sacı</span><span>25₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Quzu sacı (250 gr)</span><span>25₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Can ət sac</span><span>35₼</span></div><div class="set-content"></div></div>
+</div>
+<!-- Qarnirlər -->
+<div id="garnir" class="set-container" style="display:none;">
+  <div class="set-item"><div class="set-title"><span>Düyü</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Fri</span><span>3.5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Ev sayağı kartof</span><span>4₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Spagetti</span><span>3.5₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Qarabaşaq</span><span>3₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Pürə</span><span>3.5₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Pastalar -->
+<div id="pasta" class="set-container" style="display:none;">
+  <div class="set-item"><div class="set-title"><span>Bolonez</span><span>11₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Penne arabiata</span><span>9₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Fettuçini</span><span>11₼</span></div><div class="set-content"></div></div>
+</div>
+
+<!-- Sosislər -->
+<div id="sosis" class="set-container" style="display:none;">
+  <div class="set-item"><div class="set-title"><span>Südlü</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>İveriya</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Soredelka</span><span>6₼</span></div><div class="set-content"></div></div>
+  <div class="set-item"><div class="set-title"><span>Alman</span><span>4.5₼</span></div><div class="set-content"></div></div>
+</div>
+</div>
+
+<script>
+function showCategory(catId){
+	const sections = document.querySelectorAll('.set-container');
+  sections.forEach(sec => {
+    sec.style.display = (sec.id === catId) ? 'block' : 'none';
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  showCategory('setler');
+});
+</script>
+
+</body>
+</html>
